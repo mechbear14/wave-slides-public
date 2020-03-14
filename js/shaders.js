@@ -226,12 +226,12 @@ uniform float a;
 uniform float w;
 
 float function(float x) {
-    float y = (0.5 + a * sin(w * x)) * sin(5.0 * x);
+    float y = (0.5 + a * sin(w * x)) * sin(10.0 * x);
     return y;
 }
 
 float derivative(float x) {
-    float dydx = 0.5 * 5.0 * cos(5.0 * x) + a * (w * cos(w * x) * sin(5.0 * x) + 5.0 * sin(w * x) * cos(5.0 * x));
+    float dydx = 0.5 * 10.0 * cos(10.0 * x) + a * (w * cos(w * x) * sin(10.0 * x) + 10.0 * sin(w * x) * cos(10.0 * x));
     return dydx;
 }
 
@@ -291,12 +291,12 @@ uniform float w;
 
 float function(float x) {
     // Modulating: 2sin(x)
-    float y = sin(5.0 * x - a / w * cos(w * x));
+    float y = sin(10.0 * x - a / w * cos(w * x));
     return y;
 }
 
 float derivative(float x) {
-    float dydx = cos(5.0 * x - a / w * cos(w * x)) * (5.0 + sin(w * x));
+    float dydx = cos(10.0 * x - a / w * cos(w * x)) * (10.0 + sin(w * x));
     return dydx;
 }
 
