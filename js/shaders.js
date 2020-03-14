@@ -709,17 +709,13 @@ vec2 paramDerivative(float theta, float phaseOffset) {
 }
 
 float paramBranchMask(float thickness, float blurRadius, float theta, float phaseOffset, vec2 st) {
-    vec2 derivative = paramDerivative(theta, phaseOffset);
-    float dydx = derivative.y / derivative.x;
-    float angle = atan(dydx);
-    vec2 normal = vec2(-sin(angle), cos(angle));
-    float normalIsInvalid = step(-0.15, derivative.x) - step(0.15, derivative.x);
-    normal = mix(normal, vec2(0, 1), normalIsInvalid);
-    vec2 target = paramFunction(theta, phaseOffset);
-    float thicknessBy2 = thickness / 2.0;
-    float distanceToWave = dot(st - target, normal);
-    return smoothstep(-blurRadius - thicknessBy2, - thicknessBy2, distanceToWave) -
-    smoothstep(thicknessBy2, blurRadius + thicknessBy2, distanceToWave);
+  vec2 derivative = paramDerivative(theta, phaseOffset);
+  vec2 normal = normalize(vec2(-derivative.y, derivative.x));
+  vec2 target = paramFunction(theta, phaseOffset);
+  float thicknessBy2 = thickness / 2.0;
+  float distanceToWave = dot(st - target, normal);
+  return smoothstep(-blurRadius - thicknessBy2, - thicknessBy2, distanceToWave) -
+  smoothstep(thicknessBy2, blurRadius + thicknessBy2, distanceToWave);
 }
 
 float paramMask(float thickness, float blurRadius, float phaseOffset, vec2 st) {
