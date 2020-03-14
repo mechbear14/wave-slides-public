@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.labelled-slider {
+  display: grid;
+}
+
+.labelled-slider label {
+  grid-area: a;
+  padding: 5px 0;
+}
+
+.labelled-slider input {
+  grid-area: c;
+  padding: 5px 0;
+}
+
+.labelled-slider span {
+  grid-area: b;
+  padding: 5px 0;
+}
+
+@media (max-width: 400px) {
+  .labelled-slider {
+    grid-template:
+      "a b"
+      "c c";
+  }
+
+  .labelled-slider label {
+    text-align: left;
+  }
+
+  .labelled-slider span {
+    text-align: right;
+  }
+}
+
+@media (min-width: 400px) {
+  .labelled-slider {
+    grid-template: "a c b" / 100px 1fr 100px;
+  }
+  .labelled-slider label {
+    text-align: right;
+    margin-right: 5px;
+  }
+
+  .labelled-slider span {
+    text-align: left;
+    margin-left: 5px;
+  }
+}
+
+.vertical-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="range"][orient="vertical"] {
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  width: 10px;
+  height: 120px;
+  padding: 0 5px;
+}
+
+.vertical-slider span {
+  order: 1;
+  margin-bottom: 5px;
+}
+
+.vertical-slider input {
+  order: 2;
+}
+
+.vertical-slider label {
+  margin-top: 5px;
+  order: 3;
+}

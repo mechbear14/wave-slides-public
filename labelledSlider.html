@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="labelledSlider.css" />
+  </head>
+  <body>
+    <div class="labelled-slider">
+      <label for="slider">Number</label>
+      <input
+        type="range"
+        id="slider"
+        min="0.0"
+        max="1.0"
+        step="0.05"
+        value="0.05"
+      />
+      <span id="slider-value">0.05 </span>
+    </div>
+    <div class="vertical-slider">
+      <label for="vertical-slider">Number</label>
+      <input
+        type="range"
+        id="slider"
+        min="0.0"
+        max="1.0"
+        step="0.05"
+        value="0.05"
+        orient="vertical"
+      />
+      <span id="vertical-value">0.05 </span>
+    </div>
+    <script src="./labelledSlider.js"></script>
+  </body>
+</html>
